@@ -17,7 +17,7 @@ public class FoodService {
         return foodRepository.findAll();
     }
 
-    public Food getFoodById(Long id) {
+    public Food getFoodById(Integer id) {
         Optional<Food> food = foodRepository.findById(id);
 
         if (food.isEmpty()) {
@@ -31,7 +31,7 @@ public class FoodService {
         return foodRepository.save(food);
     }
 
-    public Food updateFood(Long id, Food updatedFood) {
+    public Food updateFood(Integer id, Food updatedFood) {
         Optional<Food> optionalFood = foodRepository.findById(id);
 
         if (optionalFood.isEmpty()) {
@@ -49,7 +49,7 @@ public class FoodService {
         return foodRepository.save(food);
     }
 
-    public void deleteFoodById(Long id) {
+    public void deleteFoodById(Integer id) {
         Optional<Food> food = foodRepository.findById(id);
 
         if (food.isEmpty()) {

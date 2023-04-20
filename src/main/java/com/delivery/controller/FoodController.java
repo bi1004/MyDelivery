@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/foods")
+@RequestMapping("/")
 public class FoodController {
     @Autowired
     private FoodService foodService;
 
-    @GetMapping
+    @GetMapping("/foods")
     public List<Food> getAllFoods() {
         return foodService.getAllFoods();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Food> getFoodById(@PathVariable Long id) {
+    public ResponseEntity<Food> getFoodById(@PathVariable Integer id) {
         Food food = foodService.getFoodById(id);
         return new ResponseEntity<>(food, HttpStatus.OK);
     }
@@ -30,6 +30,5 @@ public class FoodController {
     public ResponseEntity<Food> addFood(@RequestBody Food food) {
         Food newFood = foodService.addFood(food);
         return new ResponseEntity<>(newFood, HttpStatus.CREATED);
-
     }
 }
