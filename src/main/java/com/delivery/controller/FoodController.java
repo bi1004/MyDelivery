@@ -10,41 +10,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-<<<<<<< HEAD
 @RequestMapping("/")
-=======
-@RequestMapping("/foods")
->>>>>>> origin/dev
 public class FoodController {
     @Autowired
     private FoodService foodService;
 
-<<<<<<< HEAD
     @GetMapping("/foods")
-=======
-    @GetMapping
->>>>>>> origin/dev
     public List<Food> getAllFoods() {
         return foodService.getAllFoods();
     }
 
-    @GetMapping("/{id}")
-<<<<<<< HEAD
+    @GetMapping("/foods/{id}")
     public ResponseEntity<Food> getFoodById(@PathVariable Integer id) {
-=======
-    public ResponseEntity<Food> getFoodById(@PathVariable Long id) {
->>>>>>> origin/dev
         Food food = foodService.getFoodById(id);
         return new ResponseEntity<>(food, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/foods")
     public ResponseEntity<Food> addFood(@RequestBody Food food) {
         Food newFood = foodService.addFood(food);
         return new ResponseEntity<>(newFood, HttpStatus.CREATED);
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/dev
     }
 }
