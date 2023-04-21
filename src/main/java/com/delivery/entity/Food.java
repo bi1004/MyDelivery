@@ -14,8 +14,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Food {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO.IDENTITY)
-    private Long id; //음식 id,pk
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id; //음식 id,pk
 
     @Column(nullable = false)
     private String name; //음식 이름
@@ -29,7 +29,7 @@ public class Food {
     @Column(nullable = false)
     private String description; // 음식 설명
 
-    @Column(nullable = false)
+    @Column
     private String imageUrl; // 음식 사진 url
 
     @Column(nullable = false)
