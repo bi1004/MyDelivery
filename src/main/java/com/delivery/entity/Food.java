@@ -1,36 +1,32 @@
 package com.delivery.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
+@Table(name="food")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@ToString
 public class Food {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="food_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id; //음식 id,pk
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 30)
     private String name; //음식 이름
 
-    @Column(nullable = false)
+    @Column(name="price", nullable = false)
     private int price;// 음식 가격
 
     @Column(nullable = false)
     private String category; // 음식 카테고리
 
+    @Lob
     @Column(nullable = false)
     private String description; // 음식 설명
-
-    @Column
-    private String imageUrl; // 음식 사진 url
 
     @Column(nullable = false)
     private int quantity; // 음식 수량
